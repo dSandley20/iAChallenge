@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-bool running = true;
-while (running)
+bool Running = true;
+while (Running)
 {
 	Console.WriteLine("1. Find Closet Mill In Memory \n 2. Find Closest Mill With SQL \n  3. Generate New Data \n 4. Exit");
     var input = Convert.ToInt32(Console.ReadLine());
@@ -17,7 +17,7 @@ while (running)
 			GenerateNewData();
 			break;
 		case 4:
-			running = false;
+			Running = false;
 			break;
 		default:
 			Console.WriteLine("Invalid Choice, Please Select From the List Above");
@@ -28,12 +28,44 @@ while (running)
 
  void InMemorySearch()
 {
-
+	bool RunningInMem = true;
+	while (RunningInMem)
+	{
+        Console.WriteLine("1. Find Mill \n 2. Go Back");
+        var input = Convert.ToInt32(Console.ReadLine());
+        switch (input)
+        {
+            case 1:
+				break;
+			case 2:
+				RunningInMem = false;
+				break;
+			default:
+				Console.WriteLine("Please Select A Valid Option");
+                break;
+        }
+    }
 }
 
 void SqlSearch()
 {
-
+	bool RunningSqlSearch = true;
+	while (RunningSqlSearch)
+	{
+		Console.WriteLine("1. Find Mill \n 2. Go Back");
+		var input = Convert.ToInt32(Console.ReadLine());
+		switch (input)
+		{
+			case 1:
+				break;
+			case 2:
+				RunningSqlSearch = false;
+				break;			
+			default:
+                Console.WriteLine("Please Select A Valid Option");
+                break;
+		}
+	}
 }
 
 
