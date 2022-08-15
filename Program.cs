@@ -1,75 +1,50 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using iAChallenge.Entities;
 
 bool Running = true;
+FactoryFloor factory = new FactoryFloor();
+
 while (Running)
 {
-	Console.WriteLine("1. Find Closet Mill In Memory \n 2. Find Closest Mill With SQL \n  3. Generate New Data \n 4. Exit");
-    var input = Convert.ToInt32(Console.ReadLine());
-	switch (input)
+	try
 	{
-		case 1:
-			InMemorySearch();
-			break;
-		case 2:
-			SqlSearch();	
-			break;
-		case 3:
-			GenerateNewData();
-			break;
-		case 4:
-			Running = false;
-			break;
-		default:
-			Console.WriteLine("Invalid Choice, Please Select From the List Above");
-			break;
-	}
-}
-
-
- void InMemorySearch()
-{
-	bool RunningInMem = true;
-	while (RunningInMem)
-	{
-        Console.WriteLine("1. Find Mill \n 2. Go Back");
+        Console.WriteLine("1. Search Mill via Loops \n2. Search Mill via Dictionary  \n3. Generate New Data \n4. Exit");
         var input = Convert.ToInt32(Console.ReadLine());
         switch (input)
         {
             case 1:
-				break;
-			case 2:
-				RunningInMem = false;
-				break;
-			default:
-				Console.WriteLine("Please Select A Valid Option");
+                Console.WriteLine("Enter a pair of X,Y coordinates:");
+                var inputViaLoop = Console.ReadLine();
+                factory.RetreiveMillUnsorted(inputViaLoop);
+                PauseConsole();
+                break;
+            case 2:
+                Console.WriteLine("Enter a pair of X,Y coordinates:");
+                var inputViaDictionary = Console.ReadLine();
+                factory.RevtreiveMillStored(inputViaDictionary);
+                PauseConsole();
+                break;
+            case 3:
+                factory.GenerateWorld();
+                PauseConsole(); 
+                break;
+            case 4:
+                Running = false;
+                break;
+            default:
+                Console.WriteLine("Invalid Choice, Please Select From the List below");
                 break;
         }
     }
-}
-
-void SqlSearch()
-{
-	bool RunningSqlSearch = true;
-	while (RunningSqlSearch)
+	catch (Exception)
 	{
-		Console.WriteLine("1. Find Mill \n 2. Go Back");
-		var input = Convert.ToInt32(Console.ReadLine());
-		switch (input)
-		{
-			case 1:
-				break;
-			case 2:
-				RunningSqlSearch = false;
-				break;			
-			default:
-                Console.WriteLine("Please Select A Valid Option");
-                break;
-		}
+        Console.WriteLine("Invalid Input, Please try again");
 	}
 }
 
 
-void GenerateNewData()
+void PauseConsole()
 {
-
+	Console.WriteLine("Press enter to continue...");
+	Console.ReadLine();
+	Console.Clear();
 }
