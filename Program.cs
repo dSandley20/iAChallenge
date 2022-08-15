@@ -14,13 +14,13 @@ while (Running)
             case 1:
                 Console.WriteLine("Enter a pair of X,Y coordinates:");
                 var inputViaLoop = Console.ReadLine();
-                factory.RetreiveMillUnsorted(inputViaLoop);
+                factory.RetreiveFillUnsorted(inputViaLoop);
                 PauseConsole();
                 break;
             case 2:
                 Console.WriteLine("Enter a pair of X,Y coordinates:");
                 var inputViaDictionary = Console.ReadLine();
-                factory.RevtreiveMillStored(inputViaDictionary);
+                factory.RevtreiveFillStored(inputViaDictionary);
                 PauseConsole();
                 break;
             case 3:
